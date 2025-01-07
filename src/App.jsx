@@ -32,7 +32,7 @@ function App() {
     // Allow only numbers in the quantity field
     if (name === "quantity") {
       // Allow only numbers in the quantity field
-      if (/^\d*\.?\d*$/.test(value)) {
+      if (/^\d*$/.test(value)) {
         updateState(name, value);
       }
     } else {
