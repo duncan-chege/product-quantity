@@ -45,8 +45,10 @@ function App() {
   const { product, quantity } = values;
 
   return (
-    <div className="bg-cyan-700 min-h-screen" role="main">
-      <div className="bg-white rounded-md max-w-md">
+    <div
+      className="bg-cyan-700 min-h-screen flex justify-center items-center"
+      role="main">
+      <div className="bg-white rounded-md max-w-md w-1/2">
         <h1 className="py-4 text-center font-bold text-2xl text-cyan-800">
           Enter Values
         </h1>
@@ -57,7 +59,7 @@ function App() {
             </label>
             <br />
             <input
-              className="border-2 border-solid border-slate-400 rounded mt-1 p-2"
+              className="border-2 border-solid border-slate-400 rounded mt-1 p-2 w-full"
               type="text"
               id="product"
               value={product}
@@ -76,7 +78,7 @@ function App() {
             </label>
             <br />
             <input
-              className="border-2 border-solid border-slate-400 rounded mt-1 p-2"
+              className="border-2 border-solid border-slate-400 rounded mt-1 p-2 w-full"
               type="number"
               id="quantity"
               value={quantity}
@@ -89,18 +91,20 @@ function App() {
               </p>
             )}
           </div>
-          <button
-            className={
-              errors.product || errors.quantity || !product || !quantity
-                ? "px-4 bg-slate-400 text-white py-2 rounded"
-                : "px-4 bg-cyan-600 text-white py-2 rounded"
-            }
-            type="submit"
-            disabled={
-              errors.product || errors.quantity || !product || !quantity
-            }>
-            Submit
-          </button>
+          <div class="text-center">
+            <button
+              className={
+                errors.product || errors.quantity || !product || !quantity
+                  ? "px-4 bg-slate-400 text-white py-2 rounded"
+                  : "px-4 bg-cyan-600 text-white py-2 rounded"
+              }
+              type="submit"
+              disabled={
+                errors.product || errors.quantity || !product || !quantity
+              }>
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </div>
