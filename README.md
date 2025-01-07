@@ -1,8 +1,11 @@
-# React + Vite
+# Tip calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app lets you fill in 2 input fields and check their error states
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Client:** React, Tailwind CSS
+
+## Live Link
+
+View the project > [here](https://duncan-chege.github.io/product-quantity)
