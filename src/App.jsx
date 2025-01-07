@@ -7,13 +7,14 @@ function App() {
     quantity: false,
   });
 
+  // Update the errors based on input validity
   const trackValues = (e) => {
-    const {name, value} = e.target; 
+    const { name, value } = e.target; // Destructures the name and value from e.target and updates only the corresponding field in the errors object.
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: value.trim() === "",
+      [name]: value.trim() === "",  // Set error to true if input is empty
     }));
-  }
+  };
 
   return (
     <div className="bg-cyan-700 min-h-screen" role="main">
@@ -32,8 +33,13 @@ function App() {
               type="text"
               id="product"
               onChange={trackValues}
+              name="product"
             />
-            {errors.product && <p className="text-sm text-red-600 pt-1">Product name is needed</p>}
+            {errors.product && (
+              <p className="text-sm text-red-600 pt-1">
+                Product name is needed
+              </p>
+            )}
           </div>
           <div className="my-4">
             <label className="text-cyan-800 font-medium" htmlFor="quantity">
@@ -45,10 +51,18 @@ function App() {
               type="number"
               id="quantity"
               onChange={trackValues}
+              name="quantity"
             />
-            {errors.quantity && <p className="text-sm text-red-600 pt-1">Quantity value is needed</p>}
+            {errors.quantity && (
+              <p className="text-sm text-red-600 pt-1">
+                Quantity value is needed
+              </p>
+            )}
           </div>
-          <button className="px-4 bg-cyan-600 text-white py-2 rounded" type="submit">
+          <button
+            className={(errors.product || errors.quantity) ? "px-4 bg-slate-400 text-white py-2 rounded" : "px-4 bg-cyan-600 text-white py-2 rounded"}
+            type="submit"
+            disabled={errors.product || errors.quantity}>
             Submit
           </button>
         </form>
