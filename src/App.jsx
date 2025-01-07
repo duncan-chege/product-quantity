@@ -15,10 +15,6 @@ function App() {
     }));
   }
 
-  const checkErrors = () => {
-
-  }
-
   return (
     <div className="bg-cyan-700 min-h-screen" role="main">
       <div className="bg-white rounded-md max-w-md">
