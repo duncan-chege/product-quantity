@@ -2,19 +2,33 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [values, setValues] = useState({ 
+    product: "",
+    quantity: ""
+  });
+
   const [errors, setErrors] = useState({
     product: false,
     quantity: false,
   });
 
-  // Update the errors based on input validity
+  // Update the errors & values based on input validity
   const trackValues = (e) => {
-    const { name, value } = e.target; // Destructures the name and value from e.target and updates only the corresponding field in the errors object.
+    const { name, value } = e.target; // Destructures the name and value from e.target
+
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,  // Update the specific field's value
+    }));
+
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: value.trim() === "",  // Set error to true if input is empty
+      [name]: value.trim() === "", // Update errors for the field
     }));
   };
+
+  // Destructure product and quantity from the values object
+  const { product, quantity } = values;
 
   return (
     <div className="bg-cyan-700 min-h-screen" role="main">
@@ -60,9 +74,13 @@ function App() {
             )}
           </div>
           <button
-            className={(errors.product || errors.quantity) ? "px-4 bg-slate-400 text-white py-2 rounded" : "px-4 bg-cyan-600 text-white py-2 rounded"}
+            className={
+              errors.product || errors.quantity || !product || !quantity
+                ? "px-4 bg-slate-400 text-white py-2 rounded"
+                : "px-4 bg-cyan-600 text-white py-2 rounded"
+            }
             type="submit"
-            disabled={errors.product || errors.quantity}>
+            disabled={errors.product || errors.quantity || !product || !quantity}>
             Submit
           </button>
         </form>
