@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [values, setValues] = useState({ 
+  const [values, setValues] = useState({
     product: "",
-    quantity: ""
+    quantity: "",
   });
 
   const [errors, setErrors] = useState({
@@ -16,15 +16,29 @@ function App() {
   const trackValues = (e) => {
     const { name, value } = e.target; // Destructures the name and value from e.target
 
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,  // Update the specific field's value
-    }));
+    // Helper function to update state
+    const updateState = (name, value) => {
+      setValues((prevValues) => ({
+        ...prevValues,
+        [name]: value, // Update the specific field
+      }));
 
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: value.trim() === "", // Update errors for the field
-    }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: value.trim() === "", // Set error if empty
+      }));
+    };
+
+    // Allow only numbers in the quantity field
+    if (name === "quantity") {
+      // Allow only numbers in the quantity field
+      if (/^\d*\.?\d*$/.test(value)) {
+        updateState(name, value);
+      }
+    } else {
+      // Handle the product field or any other field
+      updateState(name, value);
+    }
   };
 
   // Destructure product and quantity from the values object
@@ -80,7 +94,9 @@ function App() {
                 : "px-4 bg-cyan-600 text-white py-2 rounded"
             }
             type="submit"
-            disabled={errors.product || errors.quantity || !product || !quantity}>
+            disabled={
+              errors.product || errors.quantity || !product || !quantity
+            }>
             Submit
           </button>
         </form>
