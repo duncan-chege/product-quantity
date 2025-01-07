@@ -60,6 +60,7 @@ function App() {
               className="border-2 border-solid border-slate-400 rounded mt-1 p-2"
               type="text"
               id="product"
+              value={product}
               onChange={trackValues}
               name="product"
             />
@@ -78,12 +79,13 @@ function App() {
               className="border-2 border-solid border-slate-400 rounded mt-1 p-2"
               type="number"
               id="quantity"
+              value={quantity}
               onChange={trackValues}
               name="quantity"
             />
             {errors.quantity && (
               <p className="text-sm text-red-600 pt-1">
-                Quantity value is needed
+                Quantity number is needed
               </p>
             )}
           </div>
