@@ -59,9 +59,9 @@ function App() {
     <div
       className="bg-[url('/assets/pampers-bg.jpg')] bg-no-repeat bg-cover bg-cyan-700 min-h-screen flex justify-center items-center"
       role="main">
-      <div className="bg-white rounded-lg max-w-3xl w-full grid grid-cols-2">
-        <div className="relative">
-          {isOrderSuccessful && <p className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-sm rounded-md px-8 py-2">Order is successful</p>}
+      <div className="mx-8 bg-white rounded-lg max-w-3xl w-full grid grid-cols-1 md:grid-cols-2">
+        <div className="relative md:order-1 order-2">
+          {isOrderSuccessful && <p className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-sm rounded-md px-4 py-2">Order is successful</p>}
           <h1 className="pt-12 text-center font-bold text-2xl text-cyan-800">
             Make Your Diaper Order
           </h1>
@@ -114,7 +114,7 @@ function App() {
             </div>
           </form>
         </div>
-        <div className="rounded-r-lg bg-[url('/assets/pampers.jpg')] bg-no-repeat bg-cover">
+        <div className="md:order-2 order-1 rounded-r-lg bg-[url('/assets/pampers.jpg')] bg-no-repeat bg-cover h-64 md:h-auto">
         </div>
       </div>
     </div>
