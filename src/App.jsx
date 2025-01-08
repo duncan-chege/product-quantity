@@ -51,7 +51,7 @@ function App() {
 
     if(!errors.product && !errors.quantity){
       setIsOrderSuccessful(true);   // Show popup
-      setTimeout(() => setIsOrderSuccessful(false), 2000);
+      setTimeout(() => setIsOrderSuccessful(false), 3000);
     }
   }
 
