@@ -12,6 +12,7 @@ function App() {
     quantity: false,
   });
 
+
   // Update the errors & values based on input validity
   const trackValues = (e) => {
     const { name, value } = e.target; // Destructures the name and value from e.target
@@ -49,18 +50,19 @@ function App() {
       className="bg-[url('/assets/pampers-bg.jpg')] bg-no-repeat bg-cover bg-cyan-700 min-h-screen flex justify-center items-center"
       role="main">
       <div className="bg-white rounded-lg max-w-3xl w-full grid grid-cols-2">
-        <div>
-          <h1 className="py-4 text-center font-bold text-2xl text-cyan-800">
+        <div className="relative">
+          {(!errors.product && !errors.quantity) && <p className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-sm rounded-md px-8 py-2">Order is successful</p>}
+          <h1 className="pt-12 text-center font-bold text-2xl text-cyan-800">
             Make Your Diaper Order
           </h1>
-          <form className="p-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="p-8" onSubmit={(e) => e.preventDefault()}>
             <div>
               <label className="text-cyan-800 font-medium" htmlFor="product">
                 Product Name
               </label>
               <br />
               <input
-                className="border-2 border-solid border-slate-400 rounded mt-1 p-2 w-full"
+                className="border-2 border-solid border-cyan-700 rounded mt-1 p-2 w-full"
                 type="text"
                 id="product"
                 value={product}
@@ -73,13 +75,13 @@ function App() {
                 </p>
               )}
             </div>
-            <div className="my-4">
+            <div className="my-8">
               <label className="text-cyan-800 font-medium" htmlFor="quantity">
                 Quantity
               </label>
               <br />
               <input
-                className="border-2 border-solid border-slate-400 rounded mt-1 p-2 w-full"
+                className="border-2 border-solid border-cyan-700 rounded mt-1 p-2 w-full"
                 type="number"
                 id="quantity"
                 value={quantity}
@@ -108,8 +110,7 @@ function App() {
             </div>
           </form>
         </div>
-        <div>
-          <img className="rounded-r-lg" src="/product-quantity/assets/pampers.jpg" alt="Pampers" />
+        <div className="rounded-r-lg bg-[url('/assets/pampers.jpg')] bg-no-repeat bg-cover">
         </div>
       </div>
     </div>
