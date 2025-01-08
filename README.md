@@ -1,4 +1,4 @@
-# Tip calculator
+# Diaper Form
 
 This app lets you fill in 2 input fields and check their error states
 
