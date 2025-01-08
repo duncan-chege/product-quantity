@@ -50,7 +50,7 @@ function App() {
     e.preventDefault();
 
     if(!errors.product && !errors.quantity){
-      setIsOrderSuccessful(true);
+      setIsOrderSuccessful(true);   // Show popup
     }
   }
 
@@ -64,7 +64,7 @@ function App() {
           <h1 className="pt-12 text-center font-bold text-2xl text-cyan-800">
             Make Your Diaper Order
           </h1>
-          <form className="p-8" onSubmit={handleSubmit()}>
+          <form className="p-8" onSubmit={handleSubmit}>
             <div>
               <label className="text-cyan-800 font-medium" htmlFor="product">
                 Product Name
@@ -105,15 +105,9 @@ function App() {
             </div>
             <div className="text-center">
               <button
-                className={
-                  errors.product || errors.quantity || !product || !quantity
-                    ? "px-4 bg-slate-400 text-white py-2 rounded"
-                    : "px-4 bg-cyan-600 text-white py-2 rounded"
-                }
+                className={`${ errors.product || errors.quantity || !product || !quantity ? "bg-slate-400" : "bg-cyan-600"  } text-white py-2 px-4 rounded`}
                 type="submit"
-                disabled={
-                  errors.product || errors.quantity || !product || !quantity
-                }>
+                disabled={ errors.product || errors.quantity || !product || !quantity }>
                 Submit
               </button>
             </div>
